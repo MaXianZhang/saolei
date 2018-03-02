@@ -1,5 +1,5 @@
-[
-    {
+{
+    "0":{
         "image": "./source/img/album1.jpeg",
         "audio": "./source/audio/audio1.mp3",
         "song": "丑八怪",
@@ -9,7 +9,7 @@
         "singer": "薛之谦",
         "duration": 248
     },
-    {
+    "1":{
         "image": "./source/img/album2.jpeg",
         "audio": "./source/audio/audio2.mp3",
         "song": "你还要我怎样",
@@ -19,7 +19,7 @@
         "singer": "薛之谦",
         "duration": 310
     },
-    {
+    "2":{
         "image": "./source/img/album3.jpeg",
         "audio": "./source/audio/audio3.mp3",
         "song": "认真的雪",
@@ -29,7 +29,7 @@
         "singer": "薛之谦",
         "duration": 255
     },
-    {
+    "3":{
         "image": "./source/img/album4.jpeg",
         "audio": "./source/audio/audio4.mp3",
         "song": "演员",
@@ -39,7 +39,7 @@
         "singer": "薛之谦",
         "duration": 261
     },
-    {
+    "4":{
         "image": "./source/img/album5.jpeg",
         "audio": "./source/audio/audio5.mp3",
         "song": "2 soon",
@@ -49,4 +49,4 @@
         "singer": "so young",
         "duration": 198
     }
-]
+}
