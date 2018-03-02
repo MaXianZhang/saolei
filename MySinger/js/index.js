@@ -12,6 +12,7 @@ var $loadingLayer = $('.loading-layer');
 /********** AudioManager ********/
 var AudioManager = function (dataList) {
     // 数据列表
+    console.log(dataList);
     this.dataList = JSON.parse(dataList);
     // console.log(this.dataList);
 
