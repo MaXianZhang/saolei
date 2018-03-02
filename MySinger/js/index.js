@@ -395,7 +395,11 @@ function renderList (data) {
     // var tmpl = __inline('../tmpl/list.tmpl'),
     // var $html = $(tmpl(data));
     function gethtml(data) {
-        var obj = JSON.parse(data);
+        if(typeof data == 'object'){
+            var obj = data;
+        }else{
+            var obj = JSON.parse(data);
+        }
         var len = obj.length;
         var ret = '';
 
