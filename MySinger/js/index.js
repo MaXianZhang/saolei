@@ -12,9 +12,16 @@ var $loadingLayer = $('.loading-layer');
 /********** AudioManager ********/
 var AudioManager = function (dataList) {
     // 数据列表
-    console.log(dataList);
-    this.dataList = JSON.parse(dataList);
-    // console.log(this.dataList);
+
+
+    if(typeof dataList == 'object'){
+        this.dataList = dataList;
+    }else{
+        this.dataList = JSON.parse(dataList);
+    }
+
+    console.log(typeof this.dataList);
+    console.log(dataList,this.dataList);
 
     // 数据索引
     this.index = 0;
