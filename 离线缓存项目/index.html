@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!-- manifest="offline.manifest.php" -->
+<head>
+	<meta charset="UTF-8">
+	<title>cache</title>
+	<link rel="stylesheet" href="./css/global.css">
+	<script src="jquery.min.js"></script>
+	<script>
+
+		$(document).ready(function () {
+			function startWithResources(resources , bool){
+				console.log('执行前检测数据：');
+				console.log(resources);
+				try{
+					insertScript(resources.js);  //有网的时候在页面当中添加js文件
+					App.applicationController.start(resources, bool);// 入口文件
+				} catch (e){
+					console.log("applicationController.start执行出错");
+				}
+			}
+			function startWithOnLineResources(resources){
+				console.log('ajax执行成功，并返回数据:');				
+				console.log(resources);
+				console.log('执行并储存数据');
+				startWithResources(resources,true);
+			}
+
+			function startWithOffLineResources() {
+				console.log('没有网，或者请求数据失败');
+				if (localStorage && localStorage.resources) {
+					console.log('有数据');
+					var resources = JSON.parse(localStorage.resources);
+				}else{
+					console.log('没有数据');
+				}
+				console.log('执行但不储存数据');
+				startWithResources(resources, false);
+			}
+
+			if(navigator && navigator.onLine === false) {
+				console.log('处于没有网状态');
+				startWithOffLineResources();
+			}else{//有网
+				console.log('正在请求ajax');
+				$.ajax({
+					url: './api/resources/index.php',
+					dataType: 'json',
+					success: startWithOnLineResources,
+					error: startWithOffLineResources
+				})
+			}
+
+			function insertScript(script) {
+				var node = document.createElement('script');
+				node.innerHTML = script;
+				document.head.appendChild(node);
+			}
+
+		})		
+
+	</script>
+</head>
+<body>
+	<div class="load">loading</div>
+</body>
+</html>
