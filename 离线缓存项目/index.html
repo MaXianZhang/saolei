@@ -43,6 +43,7 @@
 				startWithOffLineResources();
 			}else{//有网
 				console.log('有网，正在请求ajax');
+
 				$.ajax({
 					url: './api/resources/index.php',
 					dataType: 'json',
