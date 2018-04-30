@@ -1,0 +1,20 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/home/model/signin.js"
+    ],
+    "names": [
+        "signIn",
+        "name",
+        "pw",
+        "isSuccess",
+        "think",
+        "model",
+        "base"
+    ],
+    "mappings": "AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;mBAGEA,M,mBAAOC,I,EAAMC,E,EAAI;AACf,WAAO,EAACC,WAAWF,QAAM,OAAN,IAAeC,MAAI,KAA/B,EAAP;AACD,G;;;EAH0BE,MAAMC,KAAN,CAAYC,I",
+    "file": "../../../src/home/model/signin.js",
+    "sourcesContent": [
+        "'use strict';\n\nexport default class extends think.model.base {\n  signIn(name, pw) {\n    return {isSuccess:(name==\"admin\"&&pw==\"123\")};\n  }\n}"
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "version": 3,
+    "sources": [
+        "../../../src/home/controller/index.js"
+    ],
+    "names": [
+        "indexAction",
+        "display",
+        "setdataAction",
+        "type",
+        "post",
+        "id",
+        "undefined",
+        "content",
+        "JSON",
+        "parse",
+        "su",
+        "res",
+        "model",
+        "handle",
+        "success",
+        "console",
+        "log"
+    ],
+    "mappings": "AAAA;;;;;;;;;;;;;;;;;;;;AAEA;;;;;;;;;;;;;;AAGE;;;;mBAIAA,W,0BAAa;AACX;AACA,WAAO,KAAKC,OAAL,EAAP;AACD,G;;mBAEDC,a,4BAAgB;AACd,QAAIC,OAAO,KAAKC,IAAL,CAAU,MAAV,CAAX;AACA,QAAIC,KAAK,KAAKD,IAAL,CAAU,IAAV,KAAmBE,SAA5B;AACA,QAAIC,UAAU,KAAKH,IAAL,CAAU,SAAV,IAAuBI,KAAKC,KAAL,CAAW,KAAKL,IAAL,CAAU,SAAV,CAAX,CAAvB,GAA0DE,SAAxE;AACA,QAAII,KAAK,KAAKN,IAAL,CAAU,IAAV,CAAT;;AAEA;;AAEA,QAAMO,MAAM,KAAKC,KAAL,CAAW,UAAX,EAAuBC,MAAvB,CAA8BV,IAA9B,EAAmCE,EAAnC,EAAsCE,OAAtC,CAAZ;;AAEA,SAAKO,OAAL,CAAa,yBAAeH,GAAf,CAAb;AACAI,YAAQC,GAAR,CAAY,QAAZ;AACD,G",
+    "file": "../../../src/home/controller/index.js",
+    "sourcesContent": [
+        "'use strict';\n\nimport Base from './base.js';\n\nexport default class extends Base {\n  /**\n   * index action\n   * @return {Promise} []\n   */\n  indexAction(){\n    //auto render template file index_index.html\n    return this.display();\n  }\n  \n  setdataAction() {\n    let type = this.post('type');\n    let id = this.post('id') || undefined;\n    let content = this.post(\"content\") ? JSON.parse(this.post(\"content\")) : undefined;\n    let su = this.post('su');\n    \n    // console.log(\"setdataAction is running\",type,id,content)\n\n    const res = this.model(\"database\").handle(type,id,content);\n\n    this.success(JSON.stringify(res));\n    console.log('数据请求成功')\n  }\n}\n\n"
+    ]
+}
